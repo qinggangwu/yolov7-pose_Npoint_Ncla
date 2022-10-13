@@ -4,7 +4,9 @@ Implementation of "YOLOv7: Trainable bag-of-freebies sets new state-of-the-art f
 Pose estimation implimentation is based on [YOLO-Pose](https://arxiv.org/abs/2204.06806). 
 
 在yoloV7-pose基础上添加了任意关键点数量 + 多类别分类代码。
+
 这里是以4个关键点进行举例，其中添加了左右翻转数据增强，
+
 点的交换是：point1和point2 point3和point4 point5和point6 依次类推。设置了20个点的交换，可以取前n个，n为偶数。
 
 
