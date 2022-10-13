@@ -1,6 +1,4 @@
 # parameters
-#nc: 1  # number of classes
-#nkpt: 17 # number of keypoints
 
 nc: 1  # number of classes
 nkpt: 4 # number of keypoints

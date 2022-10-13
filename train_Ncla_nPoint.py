@@ -382,8 +382,8 @@ def train(hyp, opt, device, tb_writer=None):
                                                  wandb_logger=wandb_logger,
                                                  compute_loss=compute_loss,
                                                  is_coco=is_coco,
-                                                 kpt_label=kpt_label,
-                                                 kpt_num = kpt_num)
+                                                 kpt_label=kpt_label
+                                                 )
 
             # Write
             with open(results_file, 'a') as f:
@@ -477,13 +477,13 @@ def train(hyp, opt, device, tb_writer=None):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', type=str, default='weights/yolov7-w6-pose.pt', help='initial weights path')
+    parser.add_argument('--weights', type=str, default='/home/wqg/pyproject/git/yolo/yolov7/weights/yolov7-w6-pose.pt', help='initial weights path')
     parser.add_argument('--cfg', type=str, default='cfg/yolov7-w6-pose.yaml', help='model.yaml path')
-    parser.add_argument('--data', type=str, default='data/tea.yaml', help='data.yaml path')
+    parser.add_argument('--data', type=str, default='data/plate.yaml', help='data.yaml path')
     parser.add_argument('--hyp', type=str, default='data/hyp.pose.yaml', help='hyperparameters path')
     parser.add_argument('--epochs', type=int, default=3)
     parser.add_argument('--batch-size', type=int, default=1, help='total batch size for all GPUs')
-    parser.add_argument('--img-size', nargs='+', type=int, default=[320, 320], help='[train, test] image sizes')
+    parser.add_argument('--img-size', nargs='+', type=int, default=[640, 640], help='[train, test] image sizes')
     parser.add_argument('--rect', action='store_true', help='rectangular training')
     parser.add_argument('--resume', nargs='?', const=True, default=False, help='resume most recent training')
     parser.add_argument('--nosave', action='store_true', help='only save final checkpoint')

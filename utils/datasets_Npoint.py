@@ -600,7 +600,8 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
                                                  scale=hyp['scale'],
                                                  shear=hyp['shear'],
                                                  perspective=hyp['perspective'],
-                                                 kpt_label=self.kpt_label)
+                                                 kpt_label=self.kpt_label,
+                                                 kpt_num=self.kpt_num)
 
             # Augment colorspace
             augment_hsv(img, hgain=hyp['hsv_h'], sgain=hyp['hsv_s'], vgain=hyp['hsv_v'])
@@ -865,7 +866,8 @@ def load_mosaic9(self, index):
                                        shear=self.hyp['shear'],
                                        perspective=self.hyp['perspective'],
                                        border=self.mosaic_border,
-                                       kpt_label=self.kpt_label)  # border to remove
+                                       kpt_label=self.kpt_label,
+                                       kpt_num=self.kpt_num)  # border to remove
 
     return img9, labels9
 

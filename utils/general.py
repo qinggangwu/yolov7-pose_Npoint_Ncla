@@ -483,7 +483,7 @@ def wh_iou(wh1, wh2):
 
 
 def non_max_suppression(prediction, conf_thres=0.25, iou_thres=0.45, classes=None, agnostic=False, multi_label=False,
-                        labels=(), kpt_label=False, nc=None, nkpt=None):
+                        labels=(), kpt_label=False, nc=None, nkpt=17):
     """Runs Non-Maximum Suppression (NMS) on inference results
 
     Returns:
@@ -505,7 +505,7 @@ def non_max_suppression(prediction, conf_thres=0.25, iou_thres=0.45, classes=Non
     """
     if nc is None:
         # nc = prediction.shape[2] - 5  if not kpt_label else prediction.shape[2] - 56 # number of classes
-        nc = prediction.shape[2] - 5  if not kpt_label else prediction.shape[2] - (5+3*nkpt) # number of classes
+        nc = prediction.shape[2] - 5 if not kpt_label else prediction.shape[2] - (5+3*nkpt) # number of classes
     xc = prediction[..., 4] > conf_thres  # candidates
 
     # Settings
