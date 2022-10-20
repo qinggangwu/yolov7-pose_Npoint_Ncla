@@ -106,7 +106,7 @@ def detect(opt):
                     s += f"{n} {names[int(c)]}{'s' * (n > 1)}, "  # add to string
 
                 # Write results
-                for det_index, (*xyxy, conf, cls) in enumerate(reversed(det[:,:6])):
+                for det_index, (*xyxy, conf, cls) in enumerate(det[:,:6]):
                     if save_txt:  # Write to file
                         xywh = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()  # normalized xywh
                         line = (cls, *xywh, conf) if opt.save_conf else (cls, *xywh)  # label format

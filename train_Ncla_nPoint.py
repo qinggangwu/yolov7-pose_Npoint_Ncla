@@ -255,8 +255,7 @@ def train(hyp, opt, device, tb_writer=None):
     results = (0, 0, 0, 0, 0, 0, 0)  # P, R, mAP@.5, mAP@.5-.95, val_loss(box, obj, cls)
     scheduler.last_epoch = start_epoch - 1  # do not move
     scaler = amp.GradScaler(enabled=cuda)
-    # compute_loss = ComputeLoss(model, kpt_label=kpt_label)  # init loss class
-    compute_loss = ComputeLoss(model, kpt_label=kpt_label , kpt_num= kpt_num,nc=nc)  # init loss class
+    compute_loss = ComputeLoss(model, kpt_label=kpt_label)  # init loss class
     logger.info(f'Image sizes {imgsz} train, {imgsz_test} test\n'
                 f'Using {dataloader.num_workers} dataloader workers\n'
                 f'Logging results to {save_dir}\n'

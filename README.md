@@ -4,7 +4,9 @@ Implementation of "YOLOv7: Trainable bag-of-freebies sets new state-of-the-art f
 Pose estimation implimentation is based on [YOLO-Pose](https://arxiv.org/abs/2204.06806). 
 
 在yoloV7-pose基础上添加了任意关键点数量 + 多类别分类代码。
+
 这里是以4个关键点进行举例，其中添加了左右翻转数据增强，
+
 点的交换是：point1和point2 point3和point4 point5和point6 依次类推。设置了20个点的交换，可以取前n个，n为偶数。
 
 
@@ -45,6 +47,8 @@ Pose estimation implimentation is based on [YOLO-Pose](https://arxiv.org/abs/220
 ## Training
 
 [yolov7-w6-person.pt](https://github.com/WongKinYiu/yolov7/releases/download/v0.1/yolov7-w6-person.pt)
+
+百度网盘：[yolov7-w6-person.pt](https://pan.baidu.com/s/12HOci-SMAQatxj3v2_sTnA)  提取码: 9nlk
 
 ``` shell
 python -m torch.distributed.launch --nproc_per_node 8 --master_port 9527 train_Ncla_nPoint.py --data data/coco_kpts.yaml --cfg cfg/yolov7-w6-pose.yaml --weights weights/yolov7-w6-person.pt --batch-size 128 --img 960 --kpt-label --sync-bn --device 0,1,2,3,4,5,6,7 --name yolov7-w6-pose --hyp data/hyp.pose.yaml

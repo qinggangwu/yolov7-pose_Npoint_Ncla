@@ -190,7 +190,7 @@ def output_to_target(output):
 
 
 def plot_images(images, targets, paths=None, fname='images.jpg', names=None, max_size=640, max_subplots=16,
-                kpt_label=True, kpt_num = 17 ,steps=2, orig_shape=None):
+                kpt_label=True, kpt_num=17, steps=2, orig_shape=None):
     # Plot image grid with labels
 
     if isinstance(images, torch.Tensor):
