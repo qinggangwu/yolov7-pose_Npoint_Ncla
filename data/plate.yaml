@@ -1,11 +1,11 @@
 
-train: ../PLATE/train.txt  # 118287 images
-val: ../PLATE/val.txt      # 5000 images
-test: ../PLATE/val.txt     # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
+train: /media/wqg/3e165c12-9862-4867-b333-fbf93befd928/home/wqg/data/官网数据/PLATE/train.txt  # 118287 images
+val: /media/wqg/3e165c12-9862-4867-b333-fbf93befd928/home/wqg/data/官网数据/PLATE/val.txt      # 5000 images
+test: /media/wqg/3e165c12-9862-4867-b333-fbf93befd928/home/wqg/data/官网数据/PLATE/val.txt     # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
 
 
 # number of classes
-nc: 3
+nc: 1
 
-names: [ 'plate','plate1','plate2']
+names: [ 'plate']
 

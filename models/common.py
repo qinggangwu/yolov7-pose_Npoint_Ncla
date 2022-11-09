@@ -555,3 +555,21 @@ class Classify(nn.Module):
     def forward(self, x):
         z = torch.cat([self.aap(y) for y in (x if isinstance(x, list) else [x])], 1)  # cat if list
         return self.flat(self.conv(z))  # flatten to x(b,c2)
+
+
+class MP(nn.Module):
+    def __init__(self, k=2):
+        super(MP, self).__init__()
+        self.m = nn.MaxPool2d(kernel_size=k, stride=k)
+
+    def forward(self, x):
+        return self.m(x)
+
+
+class SP(nn.Module):
+    def __init__(self, k=3, s=1):
+        super(SP, self).__init__()
+        self.m = nn.MaxPool2d(kernel_size=k, stride=s, padding=k // 2)
+
+    def forward(self, x):
+        return self.m(x)

@@ -183,7 +183,7 @@ def test(data,
             # Append to text file
             if save_txt:
                 gn = torch.tensor(shapes[si][0])[[1, 0, 1, 0]]  # normalization gain whwh
-                for *xyxy, conf, cls in predn.tolist():
+                for *xyxy, conf, cls in predn[:, :6].tolist():
                     xywh = (xyxy2xywh(torch.tensor(xyxy).view(1, 4)) / gn).view(-1).tolist()  # normalized xywh
                     line = (cls, *xywh, conf) if save_conf else (cls, *xywh)  # label format
                     with open(save_dir / 'labels' / (path.stem + '.txt'), 'a') as f:
@@ -203,7 +203,7 @@ def test(data,
                                  "class_id": int(cls),
                                  "box_caption": "%s %.3f" % (names[cls], conf),
                                  "scores": {"class_score": conf},
-                                 "domain": "pixel"} for *xyxy, conf, cls in pred.tolist()]
+                                 "domain": "pixel"} for *xyxy, conf, cls in predn[:, :6].tolist()]
                     boxes = {"predictions": {"box_data": box_data, "class_labels": names}}  # inference-space
                     wandb_images.append(wandb_logger.wandb.Image(img[si], boxes=boxes, caption=path.name))
             wandb_logger.log_training_progress(predn, path, names) if wandb_logger and wandb_logger.wandb_run else None
