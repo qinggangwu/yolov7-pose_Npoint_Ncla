@@ -478,8 +478,7 @@ def train(hyp, opt, device, tb_writer=None):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    # parser.add_argument('--weights', type=str, default='/home/wqg/pyproject/git/yolo/yolov7/weights/yolov7-w6-pose.pt', help='initial weights path')
-    parser.add_argument('--weights', type=str, default='/home/wqg/pyproject/git/yolo/yolov7-pose_Npoint_Ncla/runs/train/exp8/weights/best.pt', help='initial weights path')
+    parser.add_argument('--weights', type=str, default='/home/wqg/pyproject/git/yolo/yolov7/weights/yolov7-w6-pose.pt', help='initial weights path')
     parser.add_argument('--cfg', type=str, default='cfg/yolov7-tiny-pose.yaml', help='model.yaml path')
     parser.add_argument('--data', type=str, default='data/plate.yaml', help='data.yaml path')
     parser.add_argument('--hyp', type=str, default='data/hyp.pose.yaml', help='hyperparameters path')

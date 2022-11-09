@@ -166,10 +166,8 @@ def detect(opt):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    # parser.add_argument('--weights', nargs='+', type=str, default='yolov5s.pt', help='model.pt path(s)')
-    parser.add_argument('--weights', nargs='+', type=str, default='/home/wqg/pyproject/git/yolo/yolov7-pose_Npoint_Ncla/runs/train/exp12/weights/best.pt', help='model.pt path(s)')
-    # parser.add_argument('--source', type=str, default='data/images', help='source')  # file/folder, 0 for webcam
-    parser.add_argument('--source', type=str, default='/media/wqg/3e165c12-9862-4867-b333-fbf93befd928/home/wqg/data/官网数据/PLATE/test', help='source')  # file/folder, 0 for webcam
+    parser.add_argument('--weights', nargs='+', type=str, default='yolov5s.pt', help='model.pt path(s)')
+    parser.add_argument('--source', type=str, default='data/images', help='source')  # file/folder, 0 for webcam
     parser.add_argument('--img-size', nargs= '+', type=int, default=640, help='inference size (pixels)')
     parser.add_argument('--conf-thres', type=float, default=0.55, help='object confidence threshold')
     parser.add_argument('--iou-thres', type=float, default=0.25, help='IOU threshold for NMS')
